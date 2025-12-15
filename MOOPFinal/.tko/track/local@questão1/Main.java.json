@@ -1,0 +1,64 @@
+{
+    "patches": [
+        {
+            "label": "2025-12-15_17-04-44",
+            "content": "@@ -4368,32 +4368,35 @@\n                 \n+ //\n  cineDev.adicion\n@@ -4454,32 +4454,57 @@\n           break;\n+%0A                        \n %0A%0A              \n@@ -4648,32 +4648,35 @@\n                 \n+ //\n  cineDev.adicion\n",
+            "lines": "140"
+        },
+        {
+            "label": "2025-12-15_17-05-10",
+            "content": "@@ -913,25 +913,24 @@\n ando = false\n-;\n %0A        ret\n@@ -1352,16 +1352,46 @@\n  titulo,\n+ int duracao, boolean tocando,\n  String \n",
+            "lines": "139"
+        },
+        {
+            "label": "2025-12-15_17-06-11",
+            "content": "@@ -1391,16 +1391,34 @@\n r(titulo\n+, duracao, tocando\n );%0A     \n",
+            "lines": "139"
+        },
+        {
+            "label": "2025-12-15_17-06-27",
+            "content": "@@ -1880,32 +1880,62 @@\n e(String titulo,\n+ int duracao, boolean tocando,\n  String artista)\n@@ -1948,32 +1948,50 @@\n     super(titulo\n+, duracao, tocando\n );%0A        this.\n",
+            "lines": "139"
+        },
+        {
+            "label": "2025-12-15_17-06-53",
+            "content": "@@ -1723,16 +1723,19 @@\n retor%5D%22%0A\n+// \n %7D%0A%0Aclass\n@@ -2240,16 +2240,19 @@\n tista%5D%22%0A\n+// \n %7D%0A%0A%0A// =\n",
+            "lines": "139"
+        },
+        {
+            "label": "2025-12-15_17-07-34",
+            "content": "@@ -1865,22 +1865,21 @@\n  public \n-Musica\n+Filme\n (String \n",
+            "lines": "139"
+        },
+        {
+            "label": "2025-12-15_17-09-31",
+            "content": "@@ -3835,33 +3835,8 @@\n O 1%0A\n-                        %0A\n     \n@@ -3893,61 +3893,8 @@\n %5D);%0A\n-                        cineDev adicionar midiaTemp;%0A\n     \n",
+            "lines": "139"
+        },
+        {
+            "label": "2025-12-15_17-13-07",
+            "content": "@@ -3955,17 +3955,17 @@\n dicionar\n-(\n+ \n midiaTem\n@@ -3965,17 +3965,16 @@\n idiaTemp\n-)\n ;%0A      \n",
+            "lines": "141"
+        },
+        {
+            "label": "2025-12-15_17-13-24",
+            "content": "@@ -3823,32 +3823,57 @@\n ia%22: // PASSO 1%0A\n+                        %0A\n                 \n@@ -3937,33 +3937,33 @@\n          cineDev\n-.\n+ \n adicionar(midiaT\n",
+            "lines": "141"
+        },
+        {
+            "label": "2025-12-15_17-13-55",
+            "content": "@@ -904,35 +904,36 @@\n  this.tocando = \n-tru\n+fals\n e;%0A        retur\n",
+            "lines": "140"
+        },
+        {
+            "label": "2025-12-15_17-18-07",
+            "content": "@@ -964,20 +964,21 @@\n + this.t\n-itul\n+ocand\n o;%0A    %7D\n",
+            "lines": "140"
+        },
+        {
+            "label": "2025-12-15_17-18-22",
+            "content": "import java.util.Scanner;\nimport java.util.ArrayList;\n\n// ==================================================================================\n// PASSO 1: CLASSE M\u00c3E (MIDIA)\n// ==================================================================================\nclass Midia {\n    // TODO: Atributos privados (titulo, duracao, tocando)\n    protected String titulo; // Use protected ou private com getters se preferir\n    protected int duracao;\n    protected boolean tocando;\n\n    public Midia(String titulo) {\n        // TODO: Inicialize titulo e tocando = false\n        this.titulo = titulo;\n        this.tocando = false;\n    }\n\n    public String tocar() {\n        // TODO: \n        // Se j\u00e1 estiver tocando, retorne \"[titulo] ja esta reproduzindo.\"\n        // Se n\u00e3o, mude tocando para true e retorne \"Reproduzindo midia: [titulo]\"\n        if(tocando) return this.titulo + \" ja esta reproduzindo.\";\n        this.tocando = true;\n        return \"Reproduzindo midia: \" + this.titulo;\n    }\n}\n\n// ==================================================================================\n// PASSO 2: SUBCLASSES (FILME E MUSICA)\n// ==================================================================================\n\nclass Filme extends Midia {\n    protected String diretor;\n    // Atributo extra: diretor\n    // TODO: Construtor (chame super)\n    public Filme(String titulo, String diretor){\n        super(titulo);\n        this.diretor = diretor;\n    }\n    // TODO: Sobrescreva o m\u00e9todo tocar().\n    @Override\n    public String tocar(){\n        this.tocando = true;\n        return \"Exibindo filme: \" + this.titulo + \" do diretor \" + this.diretor;\n    }\n    // Mude tocando = true.\n    // Retorne \"Exibindo filme: [titulo] do diretor [diretor]\"\n}\n\nclass Musica extends Midia {\n    protected String artista;\n    // Atributo extra: artista\n    // TODO: Construtor (chame super)\n    public Musica(String titulo, String artista){\n        super(titulo);\n        this.artista = artista;\n    }\n    // TODO: Sobrescreva o m\u00e9todo tocar().\n    @Override\n    public String tocar(){\n        this.tocando = true;\n        return \"Tocando musica: \" + this.titulo + \" - \" + this.artista;\n    }\n    // Mude tocando = true.\n    // Retorne \"Tocando musica: [titulo] - [artista]\"\n}\n\n\n// ==================================================================================\n// PASSO 3: GERENCIADOR (PLATAFORMA)\n// ==================================================================================\nclass Plataforma {\n    private ArrayList<Midia> playlist = new ArrayList<>();\n\n    public void adicionar(Midia m) {\n        playlist.add(m);\n    }\n\n    public void reproduzirTudo() {\n        System.out.println(\"--- PLAYLIST ---\");\n        for(Midia m : playlist){\n            System.out.println(m.tocar());\n        }\n        // TODO: Percorra a lista e chame o m\u00e9todo tocar() de cada elemento.\n        // Imprima o resultado de cada chamada.\n    }\n}\n\n// ==================================================================================\n// MAIN\n// ==================================================================================\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        Plataforma cineDev = new Plataforma();\n        // Para testes unit\u00e1rios manuais do passo 1\n        Midia midiaTemp = null; \n\n        while (scanner.hasNextLine()) {\n            String linha = scanner.nextLine().trim();\n            if (linha.isEmpty()) continue;\n            System.out.println(\"$\" + linha);\n            String[] tokens = linha.split(\" \");\n            String cmd = tokens[0].toLowerCase();\n\n            try {\n                switch (cmd) {\n                    case \"end\": scanner.close(); return;\n                    case \"init\": cineDev = new Plataforma(); break;\n\n                    case \"midia\": // PASSO 1\n                        midiaTemp = new Midia(tokens[1]);\n                        cineDev.adicionar(midiaTemp);\n                        break;\n                    \n                    case \"tocar_midia\": // PASSO 1\n                        if (midiaTemp != null) System.out.println(midiaTemp.tocar());\n                        break;\n\n                    case \"filme\": // PASSO 2\n                        // Ex: filme Matrix Wachowski\n                        // TODO: Descomente\n                        cineDev.adicionar(new Filme(tokens[1], tokens[2]));\n                        break;\n\n                    case \"musica\": // PASSO 2\n                        // Ex: musica HeyJude Beatles\n                        // TODO: Descomente\n                        cineDev.adicionar(new Musica(tokens[1], tokens[2]));\n                        break;\n\n                    case \"playlist\": // PASSO 3\n                        cineDev.reproduzirTudo();\n                        break;\n                }\n            } catch (Exception e) { System.out.println(\"Erro: \" + e.getMessage()); }\n        }\n    }\n}",
+            "lines": "140"
+        }
+    ]
+}

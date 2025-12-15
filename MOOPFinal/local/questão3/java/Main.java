@@ -2,13 +2,21 @@ import java.util.Scanner;
 
 // O ALUNO DEVE CRIAR AS CLASSES AQUI EM CIMA OU EM ARQUIVOS SEPARADOS
 
+public class Arma{
+
+}
+
+public class Personagem{
+
+}
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         // TODO 1: Crie as classes Personagem e Arma, depois descomente as listas abaixo:
-        // ArrayList<Personagem> grupo = new ArrayList<>();
-        // ArrayList<Arma> inventario = new ArrayList<>();
+        ArrayList<Personagem> grupo = new ArrayList<>();
+        ArrayList<Arma> inventario = new ArrayList<>();
 
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine().trim();
@@ -24,7 +32,7 @@ public class Main {
                     // --- ITENS ---
                     case "add_espada": 
                         // TODO 2: Crie a classe Espada e descomente abaixo
-                        // inventario.add(new Espada(tokens[1], Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3])));
+                        inventario.add(new Espada(tokens[1], Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3])));
                         break;
 
                     case "add_cajado":
